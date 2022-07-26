@@ -4,6 +4,8 @@ go 1.18
 
 require (
 	github.com/go-redis/redis/v8 v8.11.5
+	github.com/go-redis/redismock/v8 v8.0.6
+	github.com/google/go-cmp v0.5.8
 	github.com/uptrace/bunrouter v1.0.17
 	github.com/uptrace/bunrouter/extra/reqlog v1.0.17
 )
