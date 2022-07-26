@@ -24,7 +24,11 @@ func (c *ControllerBase) Upload(w http.ResponseWriter, req bunrouter.Request) er
 	decoder := json.NewDecoder(req.Body)
 	err := decoder.Decode(&uploadPayload)
 	if err != nil {
-		return err
+		return mytype.ApiError{
+			Status: http.StatusBadRequest,
+			Err:    err,
+			Hint:   "Malformed json",
+		}
 	}
 
 	err = leaderboard.UploadScore(req.Context(), c.redisClient, clientId, uploadPayload.Score)
